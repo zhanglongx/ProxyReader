@@ -234,7 +234,7 @@ func (sc *stoppableConn) Close() error {
 	return sc.Conn.Close()
 }
 
-func main() {
+func main1() {
 	verbose := flag.Bool("v", false, "should every proxy request be logged to stdout")
 	addr := flag.String("l", ":2081", "on which address should the proxy listen")
 	flag.Parse()
@@ -353,4 +353,18 @@ func setCA(caCert, caKey []byte) error {
 	goproxy.HTTPMitmConnect = &goproxy.ConnectAction{Action: goproxy.ConnectHTTPMitm, TLSConfig: goproxy.TLSConfigFromCA(&goproxyCa)}
 	goproxy.RejectConnect = &goproxy.ConnectAction{Action: goproxy.ConnectReject, TLSConfig: goproxy.TLSConfigFromCA(&goproxyCa)}
 	return nil
+}
+
+func main() {
+	file, err := os.Open("TestData/kw.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	kw := &kwWriter{Path: "db"}
+
+	io.Copy(kw, file)
+
+	kw.Close()
+	file.Close()
 }
