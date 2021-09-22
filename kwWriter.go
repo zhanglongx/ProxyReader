@@ -5,6 +5,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -89,7 +90,7 @@ func genFileName(title, date string) (string, error) {
 	date = reg.FindString(date)
 
 	if date == "" {
-		return "", err
+		return "", errParseResp
 	}
 
 	return date + title + ".html", nil
@@ -108,14 +109,14 @@ func genContent(content string) string {
 
 		resp, err := http.Get(url)
 		if err != nil {
-			return repl
+			return fmt.Sprintf("src=\"%s\"", url)
 		}
 
 		defer resp.Body.Close()
 
 		body, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
-			return repl
+			return fmt.Sprintf("src=\"%s\"", url)
 		}
 
 		enc := base64.StdEncoding.EncodeToString(body)
