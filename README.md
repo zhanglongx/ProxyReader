@@ -55,7 +55,7 @@ Normally, use ProxyReader as Systemd Service
 
 ## Thanks
 
-github.com/elazarl/goproxy
+[elazarl/goproxy](https://github.com/elazarl/goproxy)
 
 ## Author
 
