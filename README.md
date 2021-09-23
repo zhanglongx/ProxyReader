@@ -6,7 +6,7 @@ For now, it only effects on specified url.
 
 ## Usage
 
-Generate a Self-Signed Certification
+Generate a Self-Signed Certification. And Install the Certification on your device.
 
 ```bash
 	$ openssl genrsa -out ca.key
