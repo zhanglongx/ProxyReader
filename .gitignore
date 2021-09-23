@@ -16,3 +16,6 @@
 
 TestData/
 db/
+cert/
+
+ProxyReader
