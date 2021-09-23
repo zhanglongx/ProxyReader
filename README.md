@@ -13,7 +13,7 @@ Generate a Self-Signed Certification. And Install the Certification on your devi
 	$ openssl req -x509 -new -nodes -key ca.key -sha256 -days 730 -out ca.crt
 ```
 
-Build and Install
+Build and Install (GoPath Mode)
 
 ```bash
 	$ go build -v github.com/zhanglongx/ProxyReader
