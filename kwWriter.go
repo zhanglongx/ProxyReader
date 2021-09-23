@@ -78,7 +78,7 @@ func (k *kwWriter) Close() error {
 }
 
 func genFileName(title, date string) (string, error) {
-	title = strings.ReplaceAll(title, " ", "")
+	title = strings.Replace(title, " ", "", -1)
 	if title == "" {
 		return "", errParseResp
 	}
