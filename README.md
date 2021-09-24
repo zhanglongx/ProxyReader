@@ -17,7 +17,7 @@ Build and Install (GoPath Mode)
 
 ```bash
 	$ go build -v github.com/zhanglongx/ProxyReader
-	$ sudo install $GOPATH/github.com/zhanglongx/ProxyReader/ProxyReader /usr/local/bin # or use go install
+	$ sudo go install
 ```
 
 Help
